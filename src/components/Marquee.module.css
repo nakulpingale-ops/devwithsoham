@@ -1,0 +1,43 @@
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  background-color: #111111;
+  border-top: 1px solid #222222;
+  border-bottom: 1px solid #222222;
+  padding: 1.25rem 0 1.4rem 0; /* Adjusted for optical vertical centering */
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  /* Adjust animation duration depending on total width */
+  animation: scroll 40s linear infinite;
+}
+
+.skill {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate half the total length assuming we duplicated 4 times and want seamless */
+    transform: translateX(-50%);
+  }
+}
