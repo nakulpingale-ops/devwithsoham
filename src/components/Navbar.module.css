@@ -184,7 +184,7 @@
   .mobileCloseBtn {
     display: flex;
     position: fixed;
-    top: 20px;
+    top: 38px;
     right: 20px;
     z-index: 1002;
     width: 44px;
