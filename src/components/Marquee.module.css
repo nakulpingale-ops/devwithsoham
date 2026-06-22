@@ -16,6 +16,8 @@
   gap: 2rem;
   /* Adjust animation duration depending on total width */
   animation: scroll 40s linear infinite;
+  /* Promote to compositor layer — keeps animation off the main thread */
+  will-change: transform;
 }
 
 .skill {

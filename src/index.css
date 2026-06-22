@@ -53,6 +53,10 @@
   --container-width: 1200px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {
@@ -63,10 +67,11 @@
 
 body {
   background-color: var(--color-bg);
+  /* Removed background-attachment: fixed — it forces full repaint on every scroll frame,
+     causing severe jank on both desktop and mobile. Using a static gradient instead. */
   background-image:
-    radial-gradient(circle at top center, rgba(0, 0, 255, 0.06) 0%, rgba(0, 0, 255, 0.02) 25%, transparent 70%),
-    radial-gradient(circle at bottom right, rgba(0, 0, 255, 0.04) 0%, transparent 55%);
-  background-attachment: fixed;
+    radial-gradient(circle at 50% 0%, rgba(0, 0, 255, 0.06) 0%, rgba(0, 0, 255, 0.02) 25%, transparent 70%),
+    radial-gradient(circle at 100% 100%, rgba(0, 0, 255, 0.04) 0%, transparent 55%);
   color: var(--color-text);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -77,11 +82,14 @@ body {
 
 body::before {
   content: "";
-  position: fixed;
+  /* Changed from position:fixed to position:absolute — fixed elements trigger
+     a repaint on every scroll frame which causes jank. The noise is subtle enough
+     that static positioning is indistinguishable to the user. */
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -164,15 +172,16 @@ img {
   border-radius: 16px;
   padding: 2.5rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
-  transition: all 350ms cubic-bezier(0.22, 1, 0.36, 1);
-  /* will-change only applied to animating properties */
-  will-change: transform, box-shadow, border-color;
+  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* will-change promoted only on hover to avoid wasting GPU memory on all cards */
 }
 
 .premium-card:hover {
+  will-change: transform, box-shadow, border-color;
   transform: translateY(-8px) scale(1.015);
   border-color: rgba(0, 0, 0, 0.15);
-  /* Slightly brighter/more visible than base */
   box-shadow:
     0 25px 60px rgba(0, 0, 0, 0.06),
     0 45px 90px rgba(0, 0, 0, 0.04);
