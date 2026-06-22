@@ -155,3 +155,53 @@
 .closeButton:hover .closeIcon {
   background: rgba(255, 255, 255, 0.2);
 }
+
+/* Mobile-only close button — hidden on desktop */
+.mobileCloseBtn {
+  display: none;
+}
+
+/* ── Mobile-only fixes (max 768px) ── */
+@media (max-width: 768px) {
+  /* Make the overlay scrollable so items never overlap */
+  .overlay {
+    justify-content: flex-start;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    overflow-y: auto;
+  }
+
+  /* Reduce font size and gap so all 8 items fit on screen */
+  .menuLink {
+    font-size: clamp(1.4rem, 7vw, 2.2rem);
+  }
+
+  .menuContainer {
+    gap: 1.1rem;
+  }
+
+  /* Dedicated close icon — fixed top-right corner, mobile only */
+  .mobileCloseBtn {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #0000ff;
+    color: #ffffff;
+    font-size: 1.4rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+
+  .mobileCloseBtn:hover,
+  .mobileCloseBtn:active {
+    background: #0000cc;
+    transform: scale(1.08);
+  }
+}

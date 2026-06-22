@@ -57,6 +57,14 @@ const Navbar = () => {
               <div className={styles.logo}>Soham Desai</div>
               <div className={styles.closeIcon}>✕</div>
             </button>
+            {/* Mobile-only close button — top-right corner */}
+            <button
+              className={styles.mobileCloseBtn}
+              onClick={toggleMenu}
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
             <nav className={styles.menuContainer}>
               {menuItems.map((item, i) => (
                 <motion.a
