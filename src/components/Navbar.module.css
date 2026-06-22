@@ -166,7 +166,7 @@
   /* Make the overlay scrollable so items never overlap */
   .overlay {
     justify-content: flex-start;
-    padding-top: 100px;
+    padding-top: 124px;
     padding-bottom: 40px;
     overflow-y: auto;
   }
