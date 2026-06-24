@@ -28,12 +28,12 @@ const Hero = () => {
             <span className={`${styles.titleRow} ${styles.rowTop}`}>
               <img src="/Hero_1.png" className={styles.heroImg1} alt="" />
               <span className={styles.textWrapper}>
-                <DecryptedText text="SOFTWARE" speed={60} maxIterations={15} animateOn="hover" />
+                <DecryptedText text="SOFTWARE" speed={60} maxIterations={15} animateOn="hover-interval" />
               </span>
             </span>
             <span className={`${styles.titleRow} ${styles.rowBottom}`}>
               <span className={styles.textWrapper}>
-                <DecryptedText text="ENGINEER" speed={60} maxIterations={15} animateOn="hover" />
+                <DecryptedText text="ENGINEER" speed={60} maxIterations={15} animateOn="hover-interval" />
               </span>
               <img src="/Hero_2.png" className={styles.heroImg2} alt="" />
             </span>

@@ -43,3 +43,17 @@
     transform: translateX(-50%);
   }
 }
+
+@media (max-width: 768px) {
+  .marqueeContainer {
+    padding: 0.625rem 0 0.7rem 0;
+  }
+  
+  .skill {
+    font-size: 0.75rem;
+  }
+  
+  .separator {
+    font-size: 0.75rem;
+  }
+}

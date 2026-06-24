@@ -198,6 +198,18 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: calc(100vh - 44px);
+    min-height: calc(100dvh - 44px); /* Accounts for mobile browser toolbars */
+    padding-bottom: 2rem;
+  }
+
+  .bottomStrip {
+    padding-top: calc(2rem + 40px);
+    padding-bottom: 0;
+    margin-bottom: -8px; /* Compensates for the 40px shift against the 32px padding */
+  }
+
   .title {
     font-size: clamp(2.125rem, 10.2vw, 3.4rem);
     margin-top: 104px;
@@ -208,7 +220,7 @@
   }
 
   .left {
-    transform: translateY(32px);
+    display: none;
   }
 
   .right {

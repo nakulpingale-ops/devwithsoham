@@ -352,8 +352,19 @@ export default function DecryptedText({
     setDirection('forward');
   }, [animateOn, text, encryptInstantly]);
 
+  useEffect(() => {
+    if (animateOn === 'hover-interval') {
+      const id = setInterval(() => {
+        if (!isAnimating) {
+          triggerHoverDecrypt();
+        }
+      }, 5000);
+      return () => clearInterval(id);
+    }
+  }, [animateOn, isAnimating, triggerHoverDecrypt]);
+
   const animateProps =
-    animateOn === 'hover' || animateOn === 'inViewHover'
+    animateOn === 'hover' || animateOn === 'inViewHover' || animateOn === 'hover-interval'
       ? {
           onMouseEnter: triggerHoverDecrypt,
           onMouseLeave: resetToPlainText
