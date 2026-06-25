@@ -4,7 +4,9 @@ import styles from './About.module.css';
 import { textReveal, flipReveal, staggerContainer, defaultViewport } from '../utils/animations';
 
 const About = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 1024 : false
+  );
 
   useEffect(() => {
     const handleResize = () => {
