@@ -200,14 +200,16 @@
 @media (max-width: 768px) {
   .hero {
     min-height: calc(100vh - 44px);
-    min-height: calc(100dvh - 44px); /* Accounts for mobile browser toolbars */
+    min-height: calc(100svh - 44px);
+    /* Accounts for mobile browser toolbars without causing layout thrashing on scroll */
     padding-bottom: 2rem;
   }
 
   .bottomStrip {
     padding-top: calc(2rem + 40px);
     padding-bottom: 0;
-    margin-bottom: -8px; /* Compensates for the 40px shift against the 32px padding */
+    margin-bottom: -8px;
+    /* Compensates for the 40px shift against the 32px padding */
   }
 
   .title {
