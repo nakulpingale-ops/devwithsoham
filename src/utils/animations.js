@@ -2,7 +2,7 @@
 export const premiumEase = [0.22, 1, 0.36, 1];
 
 // Base duration for all primary motion
-export const premiumDuration = 1.0;
+export const premiumDuration = 0.6;
 
 // Standard stagger timing (120ms rhythm)
 export const staggerChildrenDelay = 0.12;
@@ -22,13 +22,11 @@ export const textReveal = {
   hidden: {
     opacity: 0,
     y: 32,
-    filter: "blur(8px)",
     scale: 0.985
   },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     scale: 1,
     transition: {
       duration: premiumDuration,
@@ -42,13 +40,11 @@ export const heroReveal = {
   hidden: {
     opacity: 0,
     y: 40,
-    filter: "blur(8px)",
     scale: 0.97
   },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     scale: 1,
     transition: {
       duration: 1.1,
@@ -64,7 +60,6 @@ export const cardReveal = {
     y: 60,
     rotateX: 12,
     scale: 0.96,
-    filter: "blur(6px)",
     transformOrigin: "center bottom"
   },
   visible: {
@@ -72,7 +67,6 @@ export const cardReveal = {
     y: 0,
     rotateX: 0,
     scale: 1,
-    filter: "blur(0px)",
     transition: {
       duration: premiumDuration,
       ease: premiumEase,
@@ -86,14 +80,12 @@ export const flipReveal = {
     opacity: 0,
     rotateY: -90,
     y: 40,
-    filter: "blur(6px)",
     transformOrigin: "center"
   },
   visible: {
     opacity: 1,
     rotateY: 0,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       duration: premiumDuration,
       ease: premiumEase,
